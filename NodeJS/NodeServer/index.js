@@ -1,14 +1,17 @@
 const express = require('express');
 const phone = require('./phone.json');
+const cors = require('cors');
 const app = express();
 const port = 3000;
+
+app.use(cors());
 
 app.get('/', (req, res) => {
     res.send('Hello Tolha - 2');
 })
 
 app.get('/phones', (req, res) => {
-    res.send(`Your Total of Phone : ${phone.length}`);
+    res.send(phone);
 })
 
 app.get('/phones/:phoneId', (req, res) => {
